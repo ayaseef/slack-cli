@@ -3,44 +3,46 @@ require 'prettyprint'
 require 'dotenv'
 Dotenv.load
 
+module Slack
+
 BASE_CHANNEL_URL = 'https://slack.com/api/conversations.list'
 BASE_USER_URL = 'https://slack.com/api/users.list?'
 KEY = ENV['SLACK_TOKEN']
 
 class Workspace
 
-  attr_reader :users, :channels
+  attr_reader :users, :channels, :selected
 
   def initialize
-    @users = HTTParty.get(BASE_USER_URL, query: {
-        token: KEY,
-    })['members']
-    @channels = HTTParty.get(BASE_CHANNEL_URL, query: {
-        token: KEY,
-    })['channels']
+    @users = User.list_all
+    @channels = Channel.list_all
   end
 
   def list_users
     puts "Users List:"
-    @users.each do |user_hash|
-      puts "Username: #{user_hash["name"]}, Name: #{user_hash["real_name"]}, SlackID: #{user_hash["id"]}"
+    @users.each do |user|
+      puts "Username: #{user.name}, Name: #{user.real_name}, SlackID: #{user.slack_id}"
     end
   end
 
   def list_channels
     puts "Channels List:"
-    @channels.each do |user_hash|
-      puts "Name: #{user_hash["name"].capitalize}, Topic: #{user_hash["topic"]["value"].capitalize}, Members: #{user_hash["num_members"]}, SlackID: #{user_hash["id"]}"
-      end
+    @channels.each do |channel|
+      puts "Name: #{channel.name}, Topic: #{channel["topic"]["value"].capitalize}, Members: #{user_hash["num_members"]}, SlackID: #{user_hash["id"]}"
     end
   end
+  def select_channel
 
-  def user_count
-    @users.length
   end
+  def select_user
 
-  def channel_count
-    @channels.length
   end
+  def details
 
+  end
+  def send_message
 
+  end
+end
+
+end

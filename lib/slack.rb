@@ -15,9 +15,12 @@ def main
 
   while loop
     puts 'Please select from the following:'
-    puts '1.List Users'
-    puts '2.List Channels'
-    puts '3.Quit'
+    puts 'List Users'
+    puts 'Select Users' # => if the user initially chooses to list users --1. List users, 2. Select user
+    puts 'List Channels' # => if the user initially chooses to list channels --1. List channel, 2. Select channel
+    puts 'Select Channels'
+    puts 'Details' # => Show details of the "SELECTED USER or CHANNEL by the user."
+    puts 'Quit'
     print 'Enter your selection here: >'
 
     user_input = gets.chomp.to_s.upcase
