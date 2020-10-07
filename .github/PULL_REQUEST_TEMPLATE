@@ -10,4 +10,16 @@ Give a short summary of the _request/response cycle_. Where does your program fi
 How does your program check for and handle errors when using the Slack API? | 
 How did the design and organization of your project change over time? | 
 Did you use any of the _inheritance idioms_ we've talked about in class? How? | 
-How does VCR aid in testing a program that uses an API? | 
+How does VCR aid in testing a program that uses an API? |
+
+# What is going on in this file?
+# Using HTTParty yo request info from Slack server
+# Aesthetically chose pretty print/awesome_print was an option
+# Requiring the .env to access out Slack Token
+# Receiving a response from the server with user data
+# How do we run this file?
+# We run this file by using the HTTP call method
+# which accesses the SLACK TOKEN to request
+# the pertaining information from the Slack servers.
+# What does the line workspace = Workspace.new do?
+# Creates a new instance of the workspace class
