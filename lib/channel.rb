@@ -18,7 +18,6 @@ module Slack
       @num_members = num_members
     end
 
-
     # def details
     #
     # end
@@ -34,7 +33,6 @@ module Slack
     def self.record_from_hash(hash)
       Channel.new(hash["id"], hash["name"], hash["topic"]["value"], hash["num_members"])
     end
-
 
   end
 end

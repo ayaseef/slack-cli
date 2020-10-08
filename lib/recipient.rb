@@ -17,9 +17,7 @@ module Slack
     end
 
     def self.list_all
-      response = HTTParty.get(self.get_base_url, query: {
-        token: ENV['SLACK_TOKEN'],
-      })
+      response = self.get
       hash_list = response[self.get_result_key]
 
         hash_list.map do |hash|
@@ -28,6 +26,12 @@ module Slack
         end
     end
 
+    def self.get
+      response = HTTParty.get(self.get_base_url, query: {
+        token: ENV['SLACK_TOKEN'],
+      })
+      return response
+    end
     # def self.validate_user_id(id)
     #   if id.nil? || id <= 0
     #     raise ArgumentError, 'ID cannot be blank or less than one.'
