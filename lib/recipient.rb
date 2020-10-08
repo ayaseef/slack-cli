@@ -28,5 +28,23 @@ module Slack
         end
     end
 
+    # def self.validate_user_id(id)
+    #   if id.nil? || id <= 0
+    #     raise ArgumentError, 'ID cannot be blank or less than one.'
+    #   end
+    # end
+    #
+    # def self.validate_user_name(id)
+    #   if id.nil? || id <= 0
+    #     raise ArgumentError, 'ID cannot be blank or less than one.'
+    #   end
+    # end
+    #
+    # def self.validate_channel_id(id)
+    #   if id.nil? || id <= 0
+    #     raise ArgumentError, 'ID cannot be blank or less than one.'
+    #   end
+    # end
+
   end
 end

@@ -11,11 +11,7 @@ module Slack
     def initialize
       @users = User.list_all
       @channels = Channel.list_all
-      # @selected = XXXXX
-    end
-
-    def selected
-
+      @selected = nil
     end
 
     def list_users
@@ -34,12 +30,16 @@ module Slack
       # end
     end
 
-    # def select_channel
-    #
-    # end
-    # def select_user
-    #
-    # end
+    def find_channel(channel_selection)
+      @selected = @channels.find { |channel| channel.name == channel_selection || channel.id == channel_selection }
+      @selected
+    end
+
+    def find_user(user_selection)
+      @selected = @users.find { |user| user.name == user_selection || user.slack_id == user_selection }
+      @selected
+    end
+
     # def details
     #
     # end
@@ -47,5 +47,4 @@ module Slack
     #
     # end
   end
-
 end

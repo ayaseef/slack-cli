@@ -36,9 +36,14 @@ require 'table_print'
         puts "Please provide a Name or Slack ID: "
         print ">"
         selected_user = gets.chomp
-
+        pp workspace.find_user(selected_user)
+        return
       when 'SELECT CHANNEL'
-
+        puts "Please provide a Channel Name or Slack ID: "
+        print ">"
+        selected_user = gets.chomp
+        pp workspace.find_channel(selected_user)
+        return
       when 'QUIT'
         exit
       else
