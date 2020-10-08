@@ -30,7 +30,17 @@ module Slack
       response = HTTParty.get(self.get_base_url, query: {
         token: ENV['SLACK_TOKEN'],
       })
+      sleep(0.5)
       return response
+    end
+
+    def post_message(message)
+      message = HTTParty.post("https://slack.com/api/chat.postMessage", body: {
+        token: ENV['SLACK_TOKEN'],
+        channel: @slack_id,
+        text: message
+      })
+
     end
     # def self.validate_user_id(id)
     #   if id.nil? || id <= 0

@@ -20,12 +20,12 @@ describe "Channel" do
     end
   end
 
-  # it ".get method un auth" do
-  #   VCR.use_cassette("Error_tests") do
-  #     # act
-  #     channel_status = Slack::Channel.get
-  #     # assert
-  #     expect(channel_status["ok"]).must_equal false
-  #   end
-  # end
+  it ".get method unauthorized" do
+    VCR.use_cassette("channel_error_tests") do
+      # act
+      channel_status = Slack::Channel.get
+      # assert
+      expect(channel_status["ok"]).must_equal false
+    end
+  end
 end

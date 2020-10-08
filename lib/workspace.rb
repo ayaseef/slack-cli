@@ -40,6 +40,9 @@ module Slack
       @selected
     end
 
+    def send_test_message
+      @selected.post_message("Hello from Blaine and Ayesha")
+    end
     # def details
     #
     # end

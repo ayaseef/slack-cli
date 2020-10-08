@@ -43,6 +43,7 @@ require 'table_print'
         print ">"
         selected_user = gets.chomp
         pp workspace.find_channel(selected_user)
+        workspace.send_test_message
         return
       when 'QUIT'
         exit

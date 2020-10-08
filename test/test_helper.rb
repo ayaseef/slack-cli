@@ -30,7 +30,7 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
-  config.filter_sensitive_data('<LOCATIONIQ_TOKEN>') do
-    ENV['LOCATIONIQ_TOKEN']
+  config.filter_sensitive_data('<SLACK_TOKEN>') do
+    ENV['SLACK_TOKEN']
   end
 end

@@ -19,11 +19,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 08 Oct 2020 20:27:19 GMT
+      - Thu, 08 Oct 2020 20:35:16 GMT
       Server:
       - Apache
       X-Slack-Req-Id:
-      - 2358e3648fdf6a017102f2434e1b230d
+      - bc290ad8e212907e2c54ee2f29ade673
       X-Oauth-Scopes:
       - chat:write,channels:read,users:read
       Access-Control-Expose-Headers:
@@ -58,10 +58,10 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Via:
-      - haproxy-www-9rbg,haproxy-edge-pdx-fil8
+      - haproxy-www-xlhq,haproxy-edge-pdx-snuh
     body:
       encoding: ASCII-8BIT
-      string: '{"ok":true,"channels":[{"id":"C0165N9BX3M","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1593234571,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"U01644Z7NG5","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["T016J51T03T"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"This
+      string: '{"ok":false,"channels":[{"id":"C0165N9BX3M","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1593234571,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"U01644Z7NG5","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["T016J51T03T"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"This
         *channel* is for working on a project. Hold meetings, share docs, and make
         decisions together with your team.","creator":"U01644Z7NG5","last_set":1593234571},"previous_names":["project"],"num_members":106},{"id":"C0165NC8LHH","name":"fur-babes","is_channel":true,"is_group":false,"is_im":false,"created":1593235051,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"fur-babes","is_shared":false,"parent_conversation":null,"creator":"U01644Z7NG5","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["T016J51T03T"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"Pet
         pics please!","creator":"U01644Z7NG5","last_set":1593236472},"purpose":{"value":"Pet
@@ -126,5 +126,5 @@ http_interactions:
         lies or ambiguous truths about yourself","creator":"U016C1C4R3N","last_set":1600144232},"previous_names":[],"num_members":17},{"id":"C01BWMPFJ56","name":"physical-health","is_channel":true,"is_group":false,"is_im":false,"created":1600815161,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"physical-health","is_shared":false,"parent_conversation":null,"creator":"U017F099ZFX","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["T016J51T03T"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"Ergnomics,
         exercise, and other things","creator":"U017F099ZFX","last_set":1600815162},"previous_names":[],"num_members":15},{"id":"C01BX87D1H8","name":"test-api-cheezitbot2","is_channel":true,"is_group":false,"is_im":false,"created":1601774806,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"test-api-cheezitbot2","is_shared":false,"parent_conversation":null,"creator":"U016JEE7Z09","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["T016J51T03T"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":0},{"id":"C01BXHNFPHT","name":"testchannel-liroulirou","is_channel":true,"is_group":false,"is_im":false,"created":1601947293,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"testchannel-liroulirou","is_shared":false,"parent_conversation":null,"creator":"U017AJPC8SJ","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["T016J51T03T"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"lirou
         lirou lirou","creator":"U017AJPC8SJ","last_set":1601947294},"previous_names":[],"num_members":1}],"response_metadata":{"next_cursor":""}}'
-  recorded_at: Thu, 08 Oct 2020 20:27:19 GMT
+  recorded_at: Thu, 08 Oct 2020 20:35:16 GMT
 recorded_with: VCR 6.0.0
