@@ -1,48 +1,51 @@
-require 'httparty'
+require_relative 'channel'
+require_relative 'user'
 require 'prettyprint'
-require 'dotenv'
-Dotenv.load
 
 module Slack
 
-BASE_CHANNEL_URL = 'https://slack.com/api/conversations.list'
-BASE_USER_URL = 'https://slack.com/api/users.list?'
-KEY = ENV['SLACK_TOKEN']
+  class Workspace
 
-class Workspace
+    attr_reader :users, :channels, :selected
 
-  attr_reader :users, :channels, :selected
-
-  def initialize
-    @users = User.list_all
-    @channels = Channel.list_all
-  end
-
-  def list_users
-    puts "Users List:"
-    @users.each do |user|
-      puts "Username: #{user.name}, Name: #{user.real_name}, SlackID: #{user.slack_id}"
+    def initialize
+      @users = User.list_all
+      @channels = Channel.list_all
+      # @selected = XXXXX
     end
-  end
 
-  def list_channels
-    puts "Channels List:"
-    @channels.each do |channel|
-      puts "Name: #{channel.name}, Topic: #{channel["topic"]["value"].capitalize}, Members: #{user_hash["num_members"]}, SlackID: #{user_hash["id"]}"
+    def selected
+
     end
-  end
-  def select_channel
 
-  end
-  def select_user
+    def list_users
+      return @users
+      # puts "Users List:"
+      # @users.each do |user|
+      #   puts "Username: #{user.name}, Name: #{user.real_name}, SlackID: #{user.slack_id}"
+      # end
+    end
 
-  end
-  def details
+    def list_channels
+      return @channels
+      # puts "Channels List:"
+      # @channels.each do |channel|
+        # puts "Name: #{channel.name}, Topic: #{channel.topic}, Members: #{channel.num_members}, SlackID: #{channel.id}"
+      # end
+    end
 
+    # def select_channel
+    #
+    # end
+    # def select_user
+    #
+    # end
+    # def details
+    #
+    # end
+    # def send_message
+    #
+    # end
   end
-  def send_message
-
-  end
-end
 
 end
