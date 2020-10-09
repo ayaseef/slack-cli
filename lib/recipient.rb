@@ -3,8 +3,10 @@ require 'prettyprint'
 require 'httparty'
 require 'dotenv'
 
+
 module Slack
-  # class SlackError < StandardError; end
+
+  class SlackError < StandardError; end
 
   class Recipient
 
@@ -29,7 +31,13 @@ module Slack
       response = HTTParty.get(self.get_base_url, query: {
         token: ENV['SLACK_TOKEN'],
       })
-      sleep(0.5)
+      sleep(0.25)
+      if response.code != 200
+        raise SlackError, "Something went wrong: #{response.code}"
+      end
+      unless response["ok"]
+        raise SlackError, response["error"]
+      end
       return response
     end
 

@@ -17,17 +17,29 @@ describe "Channel" do
       channel_status = Slack::Channel.get
       # assert
       expect(channel_status["ok"]).must_equal true
+      expect(channel_status).must_be_instance_of HTTParty::Response
     end
   end
 
-  it ".get method unauthorized" do
+  it ".get method encounters HTTP error" do
     VCR.use_cassette("channel_error_tests") do
       # act
-      channel_status = Slack::Channel.get
       # assert
-      expect(channel_status["ok"]).must_equal false
+      error = expect do
+        Slack::Channel.get
+      end.must_raise Slack::SlackError
+      expect(error.message).must_equal "Something went wrong: 500"
+
+    end
+  end
+
+  it ".get method encounters not authorized error" do
+    VCR.use_cassette("channel_unauthorized_tests") do
+      # act
+      # assert
+      error = expect { Slack::Channel.get }.must_raise Slack::SlackError
+      expect(error.message).must_equal "not_authed"
     end
   end
 end
 
-#

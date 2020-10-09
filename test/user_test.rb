@@ -30,13 +30,12 @@ describe "User" do
     end
   end
 
-  it ".get method unauthorized" do
-    VCR.use_cassette("user_error_tests") do
+  it ".get method encounters not authorized error" do
+    VCR.use_cassette("user_unauthorized_tests") do
       # act
-      user_status = Slack::User.get
       # assert
-      expect(user_status["ok"]).must_equal false
+      error = expect { Slack::User.get }.must_raise Slack::SlackError
+      expect(error.message).must_equal "not_authed"
     end
   end
-
 end

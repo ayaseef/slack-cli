@@ -12,6 +12,12 @@ require 'webmock/minitest'
 require 'dotenv'
 Dotenv.load
 
+require_relative "../lib/channel.rb"
+require_relative "../lib/user.rb"
+require_relative "../lib/slack.rb"
+require_relative "../lib/recipient.rb"
+require_relative "../lib/workspace.rb"
+
 # require_relative '../lib/location_search'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new

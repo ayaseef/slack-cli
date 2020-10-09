@@ -15,7 +15,7 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
+      code: 500
       message: OK
     headers:
       Date:
