@@ -41,14 +41,15 @@ module Slack
       print ">"
       selected_channel = gets.chomp
       # Returns as @selected instance variable
-      workspace.find_channel(selected_channel)
-      @selected = @channels.find { |channel| channel.name == channel_selection || channel.slack_id == channel_selection }
-      @selected
+      @selected = @channels.find { |channel| channel.name == selected_channel || channel.slack_id == selected_channel }
       if selected_channel != nil
-        puts "We found your channel!"
+        puts "We found your user!"
+      else
+        puts "Oops, #{selected_channel}, does not exist as a user.  Try again!"
       end
-
+      @selected
     end
+
     # Finds and stores selected channel in user instance variable
     # returns nil if incorrect user_selection
     def find_user
@@ -57,13 +58,21 @@ module Slack
       selected_user = gets.chomp
       # Returns as @selected instance variable
       @selected = @users.find { |user| user.name == selected_user || user.slack_id == selected_user }
+        if selected_user != nil
+          puts "We found your user!"
+        else
+          puts "Oops, #{selected_user}, does not exist as a user.  Try again!"
+        end
       @selected
-      if @selected != nil
-        puts "We found your user!"
-      else
-        puts "Oops, #{selected_user}, does not exist as a user.  Try again!"
-      end
     end
+
+    # def helper_find
+    #   if selected != nil || selected != nil
+    #     puts "We found it!"
+    #   else
+    #     puts "Oops, #{@selected}, does not exist as a user.  Try again!"
+    #   end
+    # end
 
     def send_test_message
       print "Enter the message you would like to send to #{@selected.name}:>"
@@ -77,10 +86,10 @@ module Slack
       if @selected != nil
         return @selected.get_details
       else
-        raise SlackError, "Must select user or channel!"
+        puts "You need to select a User or Channel."
+        puts "Start again."
+        # raise SlackError, "Must select user or channel!"
       end
     end
-
-
   end
 end

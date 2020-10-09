@@ -14,16 +14,26 @@ describe "User" do
   it ".get method message is true" do
     VCR.use_cassette("user_tests") do
       # act
-      user_status = Slack::Channel.get
+      user_status = Slack::User.get
       # assert
       expect(user_status["ok"]).must_equal true
+    end
+  end
+
+  it ".record_from_hash should return a user from the hash" do
+    VCR.use_cassette("user_tests") do
+      # act
+      user_hash = Slack::User.get
+      user = Slack::User.record_from_hash(user_hash["members"][0])
+      # assert
+      expect(user).must_be_instance_of Slack::User
     end
   end
 
   it ".get method unauthorized" do
     VCR.use_cassette("user_error_tests") do
       # act
-      user_status = Slack::Channel.get
+      user_status = Slack::User.get
       # assert
       expect(user_status["ok"]).must_equal false
     end
