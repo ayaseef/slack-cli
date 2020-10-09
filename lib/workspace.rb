@@ -36,15 +36,33 @@ module Slack
 
     # Finds and stores selected channel in channel instance variable
     # returns nil if incorrect user_selection
-    def find_channel(channel_selection)
+    def find_channel
+      puts "Please provide a Channel Name or Slack ID: "
+      print ">"
+      selected_channel = gets.chomp
+      # Returns as @selected instance variable
+      workspace.find_channel(selected_channel)
       @selected = @channels.find { |channel| channel.name == channel_selection || channel.slack_id == channel_selection }
       @selected
+      if selected_channel != nil
+        puts "We found your channel!"
+      end
+
     end
     # Finds and stores selected channel in user instance variable
     # returns nil if incorrect user_selection
-    def find_user(user_selection)
-      @selected = @users.find { |user| user.name == user_selection || user.slack_id == user_selection }
+    def find_user
+      puts "Please provide a Name or Slack ID: "
+      print ">"
+      selected_user = gets.chomp
+      # Returns as @selected instance variable
+      @selected = @users.find { |user| user.name == selected_user || user.slack_id == selected_user }
       @selected
+      if @selected != nil
+        puts "We found your user!"
+      else
+        puts "Oops, #{selected_user}, does not exist as a user.  Try again!"
+      end
     end
 
     def send_test_message
@@ -62,6 +80,7 @@ module Slack
         raise SlackError, "Must select user or channel!"
       end
     end
+
 
   end
 end

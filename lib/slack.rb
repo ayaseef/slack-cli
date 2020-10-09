@@ -21,30 +21,12 @@ require 'table_print'
       case user_input
       when 'LIST USERS'
         tp workspace.list_users, "slack_id", "name", "real_name"
-        loop = false
       when 'LIST CHANNELS'
         tp workspace.list_channels,"slack_id", "name", "topic", "num_members"
-        loop = false
       when 'SELECT USER'
-        puts "Please provide a Name or Slack ID: "
-        print ">"
-        selected_user = gets.chomp
-        # Returns as @selected instance variable
-        selected = workspace.find_user(selected_user)
-          if selected != nil
-            puts "We found your user!"
-          else
-            puts "Oops, #{selected_user}, does not exist as a user.  Try again!"
-          end
+        pp workspace.find_user
       when 'SELECT CHANNEL'
-        puts "Please provide a Channel Name or Slack ID: "
-        print ">"
-        selected_channel = gets.chomp
-        # Returns as @selected instance variable
-        workspace.find_channel(selected_channel)
-        if selected_channel != nil
-          puts "We found your channel!"
-        end
+
       when "DETAILS"
         begin
           puts workspace.get_details
