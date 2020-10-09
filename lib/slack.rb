@@ -14,14 +14,7 @@ require 'table_print'
     loop = true
 
     while loop
-      puts 'Please select from the following:'
-      puts 'List Users'
-      puts 'Find user by name or ID' # => if the user initially chooses to list users --1. List users, 2. Select user
-      puts 'List Channels' # => if the user initially chooses to list channels --1. List channel, 2. Select channel
-      puts 'find channel by name or id'
-      puts 'Details' # => Show details of the "SELECTED USER or CHANNEL by the user."
-      puts 'Quit'
-      print 'Enter your selection here: >'
+      workspace.command
 
       user_input = gets.chomp.to_s.upcase
 
@@ -36,13 +29,55 @@ require 'table_print'
         puts "Please provide a Name or Slack ID: "
         print ">"
         selected_user = gets.chomp
-        pp workspace.find_user(selected_user)
-        return
+        # Returns as @selected instance variable
+        selected = workspace.find_user(selected_user)
+          if selected != nil
+            puts "We found your user!"
+          else
+            puts "Oops, #{selected_user}, does not exist as a user.  Try again!"
+          end
+          # puts "Do you want more details? Yes or No?"
+          # print ">"
+          # answer = gets.chomp.capitalize
+          # if answer == "Yes" || answer == "Y"
+          #   pp workspace.find_user(selected_user)
+          # elsif answer == "No" || answer == "N"
+          #   puts "'Thank you for using the Ada Slack CLI'"
+          #   return
+          # else
+          #   workspace.command
+          # end
+        # end
+
       when 'SELECT CHANNEL'
         puts "Please provide a Channel Name or Slack ID: "
         print ">"
-        selected_user = gets.chomp
-        pp workspace.find_channel(selected_user)
+        selected_channel = gets.chomp
+        # Returns as @selected instance variable
+        workspace.find_channel(selected_channel)
+        if selected_channel != nil
+          puts "We found your channel!"
+        end
+        #   puts "Do you want more details? Yes or No?"
+        #   print ">"
+        #   answer = gets.chomp.capitalize
+        #   if answer == "Yes" || answer == "Y"
+        #     pp workspace.find_channel(selected_channel)
+        #   elsif answer == "No" || answer == "N"
+        #     puts "'Thank you for using the Ada Slack CLI'"
+        #     return
+        #   else
+        #     puts "Please enter a yes or no answer:"
+        #     answer = gets.chomp.capitalize
+        #   end
+        # end
+      when "DETAILS"
+        begin
+          puts workspace.get_details
+        rescue SlackError => error
+          puts error.message
+        end
+      when 'SEND MESSAGE'
         workspace.send_test_message
         return
       when 'QUIT'
@@ -52,7 +87,6 @@ require 'table_print'
         loop = true
       end
     end
-
     puts 'Thank you for using the Ada Slack CLI'
   end
 

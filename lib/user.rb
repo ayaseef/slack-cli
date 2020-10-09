@@ -16,6 +16,10 @@ module Slack
       @real_name = real_name
     end
 
+    def get_details
+      return "User Name:#{@name}, ..."
+    end
+
     def self.get_base_url
       BASE_USER_URL
     end

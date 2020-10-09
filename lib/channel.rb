@@ -8,19 +8,19 @@ module Slack
 
     BASE_CHANNEL_URL = 'https://slack.com/api/conversations.list'
 
-    attr_reader :id, :name, :topic, :num_members
+    attr_reader :topic, :num_members
 
-    def initialize(id, name, topic, num_members)
+    def initialize(slack_id, name, topic, num_members)
       # workspace = Workspace.new
-      @slack_id = id
-      @name = name
+      super(slack_id, name)
       @topic = topic
       @num_members = num_members
     end
 
-    # def details
-    #
-    # end
+    def get_details
+      return "Channel Name:#{@name}...."
+
+    end
 
     def self.get_base_url
       BASE_CHANNEL_URL
@@ -37,6 +37,9 @@ module Slack
   end
 end
 
+
+
+# Below method was re-factored and placed in recipient to grab info from user and channel classes
 # def self.list_all
 #   channel_hash_list = HTTParty.get(BASE_CHANNEL_URL, query: {
 #     token: KEY,
