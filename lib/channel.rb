@@ -1,7 +1,6 @@
 require_relative 'recipient'
 require 'prettyprint'
 
-
 module Slack
 
   class Channel < Recipient
@@ -18,8 +17,7 @@ module Slack
     end
 
     def get_details
-      return "Channel Name:#{@name}...."
-
+      return "Channel Name: #{@name}, Topic: #{@topic}, Members: #{@num_members}, SlackID: #{@slack_id}"
     end
 
     def self.get_base_url
@@ -36,15 +34,3 @@ module Slack
 
   end
 end
-
-
-
-# Below method was re-factored and placed in recipient to grab info from user and channel classes
-# def self.list_all
-#   channel_hash_list = HTTParty.get(BASE_CHANNEL_URL, query: {
-#     token: KEY,
-#   })['channels']
-#   channel_hash_list.map do |hash|
-#
-#   end)
-# end

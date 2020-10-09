@@ -36,19 +36,6 @@ require 'table_print'
           else
             puts "Oops, #{selected_user}, does not exist as a user.  Try again!"
           end
-          # puts "Do you want more details? Yes or No?"
-          # print ">"
-          # answer = gets.chomp.capitalize
-          # if answer == "Yes" || answer == "Y"
-          #   pp workspace.find_user(selected_user)
-          # elsif answer == "No" || answer == "N"
-          #   puts "'Thank you for using the Ada Slack CLI'"
-          #   return
-          # else
-          #   workspace.command
-          # end
-        # end
-
       when 'SELECT CHANNEL'
         puts "Please provide a Channel Name or Slack ID: "
         print ">"
@@ -58,19 +45,6 @@ require 'table_print'
         if selected_channel != nil
           puts "We found your channel!"
         end
-        #   puts "Do you want more details? Yes or No?"
-        #   print ">"
-        #   answer = gets.chomp.capitalize
-        #   if answer == "Yes" || answer == "Y"
-        #     pp workspace.find_channel(selected_channel)
-        #   elsif answer == "No" || answer == "N"
-        #     puts "'Thank you for using the Ada Slack CLI'"
-        #     return
-        #   else
-        #     puts "Please enter a yes or no answer:"
-        #     answer = gets.chomp.capitalize
-        #   end
-        # end
       when "DETAILS"
         begin
           puts workspace.get_details

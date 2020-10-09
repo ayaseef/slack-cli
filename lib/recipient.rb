@@ -35,17 +35,6 @@ module Slack
 
       def get_details
         @selected.get_details
-        #  if @selected is user info
-        #  if @selected is channel info Channel.get_details
-        # return self.get_details
-        #
-        # if @selected == user.name || @selected == user.slack_id
-        # return User.get_details
-        # elsif @selected == channel.name || @selected == channel.slack_id
-        # return Channel.get_details
-        #
-        # if user input ==
-        #
       end
 
       def post_message(message)

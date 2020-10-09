@@ -1,8 +1,6 @@
 require_relative 'recipient'
 require 'prettyprint'
 
-
-
 module Slack
 
   class User < Recipient
@@ -17,7 +15,7 @@ module Slack
     end
 
     def get_details
-      return "User Name:#{@name}, ..."
+      return "Username: #{@name}, Name: #{@real_name}, SlackID: #{@slack_id}"
     end
 
     def self.get_base_url
@@ -32,16 +30,5 @@ module Slack
       User.new(hash["id"], hash["name"], hash["real_name"])
     end
 
-
   end
 end
-
-
-# def self.list_all
-#   user_hash_list = HTTParty.get(BASE_USER_URL, query: {
-#     token: KEY,
-#   })['members']
-#   user_hash_list.map do |user_hash|
-#     User.new(user_hash["id"], user_hash["name"], user_hash["real_name"])
-#   end
-# end
