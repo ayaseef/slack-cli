@@ -40,10 +40,6 @@ describe "Workspace" do
     expect(result.name).must_equal user_name
   end
 
-  it "unable to find user " do
-    skip
-  end
-
   it "finds channel successfully" do
     channel_name = "getting-help"
 
@@ -70,6 +66,4 @@ describe "Workspace" do
     expect(details).must_be_kind_of String
     expect(details).must_include "slackbot"
   end
-
-  it "sends message"
 end

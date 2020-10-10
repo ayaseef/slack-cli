@@ -17,7 +17,7 @@ module Slack
       @name = name
     end
 
-    # returns user/channel data as a hash
+    # Returns user/channel data as a hash
     def self.list_all
       response = self.get
       hash_list = response[self.get_result_key]
@@ -26,7 +26,7 @@ module Slack
         end
     end
 
-    # retrieves user/channel data
+    # Retrieves user/channel data
     def self.get
       response = HTTParty.get(self.get_base_url, query: {
         token: ENV['SLACK_TOKEN'],
@@ -51,7 +51,6 @@ module Slack
         channel: @slack_id,
         text: message
       })
-
     end
   end
 end

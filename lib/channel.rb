@@ -10,7 +10,6 @@ module Slack
     attr_reader :topic, :num_members
 
     def initialize(slack_id, name, topic, num_members)
-      # workspace = Workspace.new
       super(slack_id, name)
       @topic = topic
       @num_members = num_members

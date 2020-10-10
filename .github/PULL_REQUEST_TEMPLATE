@@ -5,12 +5,12 @@ Congratulations! You're submitting your assignment. Please reflect on the assign
 ## Reflection
 Question | Answer
 ---      | ---
-How did you go about exploring the Slack API? Did you learn anything that would be useful for your next project involving an API? | 
-Give a short summary of the _request/response cycle_. Where does your program fit into that scheme? | 
-How does your program check for and handle errors when using the Slack API? | 
-How did the design and organization of your project change over time? | 
-Did you use any of the _inheritance idioms_ we've talked about in class? How? | 
-How does VCR aid in testing a program that uses an API? |
+How did you go about exploring the Slack API? Did you learn anything that would be useful for your next project involving an API? | We opened a new workspace. Used postman and referenced the seven wonders assignment to understand the API content.  This was 100% new concept for both of us.  Will probably utilize VHS & SimpleCov in the future projects.
+Give a short summary of the _request/response cycle_. Where does your program fit into that scheme? | Our Slack CLI program was a client that would make request to the API server using the HTTParty. The API server would receive our request, process our request and send a response back. With the help of Postman app, we deciphered the Server response and utilized the JSON data to interpret, manipulate, and display it to the user in our Slack CLI program.
+How does your program check for and handle errors when using the Slack API? | Our program throws a SlackError and rescues it in order to keep the CLI loop going. It also gives the end user reminders to take steps in order.
+How did the design and organization of your project change over time? | We began with the CLI slack.rb and a workspace.rb.  From there we expanded and created classes for User and Channel.
+Did you use any of the _inheritance idioms_ we've talked about in class? How? | Recipient was our abstract class.  It served as the parent class to our Channel class and User class.  It wasn't instantiated, but used by the child classes
+How does VCR aid in testing a program that uses an API? | We used VCR to "RECORD" screenshots of the API calls that were requested. SHence, if we need to process the CLI program when the API server is down or the data changes, we have the DATA requested when the call was orignaly made and successful. It also allows for quicker and more thorough testing practices.
 
 # What is going on in this file?
 # Using HTTParty yo request info from Slack server

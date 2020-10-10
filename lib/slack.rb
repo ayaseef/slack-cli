@@ -3,10 +3,9 @@ require_relative 'workspace'
 require 'table_print'
 require 'awesome_print'
 
-
 def main
   Dotenv.load
-
+  # Creates new workspace
   workspace = Slack::Workspace.new
 
   puts 'Welcome to the Ada Slack CLI!'
@@ -39,6 +38,7 @@ def main
   puts 'Thank you for using the Ada Slack CLI'
 end
 
+# Command line promp
 def command
   puts 'Please select from the following:'
   puts 'List Users'
@@ -51,6 +51,7 @@ def command
   print 'Enter your selection here: >'
 end
 
+# Helper method to implement User Selection
 def handle_select_user(workspace)
   puts "Please provide a Name or Slack ID: "
   print ">"
@@ -63,6 +64,7 @@ def handle_select_user(workspace)
   end
 end
 
+# Helper method to implement Channel Selection
 def handle_select_channel(workspace)
   puts "Please provide a Name or Slack ID: "
   print ">"
@@ -75,6 +77,7 @@ def handle_select_channel(workspace)
   end
 end
 
+# Helper method responsible for retrieving Selected Details
 def handle_get_details(workspace)
   pp workspace.get_details
 rescue Slack::SlackError
@@ -82,6 +85,7 @@ rescue Slack::SlackError
   puts "Start again."
 end
 
+# End users send message retrieval and prompt
 def handle_send_message(workspace)
   begin
   print "Enter the message you would like to send to #{workspace.selected.name}:>"
