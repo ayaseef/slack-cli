@@ -39,9 +39,16 @@ describe "User" do
     end
   end
 
-  it "gets channel base url" do
+  it "gets user base url" do
     VCR.use_cassette("user_tests") do
       expect(Slack::User.get_base_url).must_equal 'https://slack.com/api/users.list?'
+    end
+  end
+
+  it "gets user details" do
+    skip
+    VCR.use_cassette("user_tests") do
+      expect().must_be_instance_of String
     end
   end
 end

@@ -67,7 +67,7 @@ def handle_select_channel(workspace)
   puts "Please provide a Name or Slack ID: "
   print ">"
   selected_channel = gets.chomp
-  selected = workspace.find_user(selected_channel)
+  selected = workspace.find_channel(selected_channel)
   if selected != nil
     puts "We found #{selected.name}!"
   else

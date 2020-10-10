@@ -59,7 +59,5 @@ describe "Channel" do
 
     end
   end
-
-
 end
 

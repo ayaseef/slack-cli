@@ -70,4 +70,6 @@ describe "Workspace" do
     expect(details).must_be_kind_of String
     expect(details).must_include "slackbot"
   end
+
+  it "sends message"
 end
