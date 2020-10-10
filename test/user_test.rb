@@ -38,4 +38,10 @@ describe "User" do
       expect(error.message).must_equal "not_authed"
     end
   end
+
+  it "gets channel base url" do
+    VCR.use_cassette("user_tests") do
+      expect(Slack::User.get_base_url).must_equal 'https://slack.com/api/users.list?'
+    end
+  end
 end

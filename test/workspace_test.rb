@@ -41,7 +41,7 @@ describe "Workspace" do
   end
 
   it "unable to find user " do
-
+    skip
   end
 
   it "finds channel successfully" do

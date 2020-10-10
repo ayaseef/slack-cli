@@ -40,6 +40,25 @@ describe "Channel" do
     end
   end
 
+  it "gets channel base url" do
+    VCR.use_cassette("channel_tests") do
+      expect(Slack::Channel.get_base_url).must_equal 'https://slack.com/api/conversations.list'
+    end
+  end
+
+  it "gets details for channel" do
+    skip
+    VCR.use_cassette("channel_tests") do
+
+    end
+  end
+
+  it "record from hash returns an instance of channel " do
+    skip
+    VCR.use_cassette("channel_tests") do
+
+    end
+  end
 
 
 end
