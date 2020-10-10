@@ -14,7 +14,10 @@ describe "Workspace" do
 
   it "lists users" do
     result = @workspace.list_users
+    first_user = result[0]
     expect(result).must_be_instance_of Array
+    expect(first_user).must_be_instance_of Slack::User
+    expect(first_user.name).must_equal "slackbot"
   end
 
   it "lists channels" do
@@ -38,7 +41,7 @@ describe "Workspace" do
   end
 
   it "unable to find user " do
-    skip
+
   end
 
   it "finds channel successfully" do
@@ -50,16 +53,21 @@ describe "Workspace" do
     expect(result.name).must_equal channel_name
   end
 
-  it "get details when selected is nil" do
-    skip
-
-    # arrange
-    # act
-    # assert
+  it "get details throws error when selected is nil" do
+    expect { @workspace.get_details }.must_raise Slack::SlackError
   end
 
   it "get details when selected returns details" do
-    skip
-  end
+    # arrange
+    users = @workspace.users
+    selected_user = users[0] #slackbot
+    @workspace.find_user(selected_user.name)
 
+    # act
+    details = @workspace.get_details
+
+    # assert
+    expect(details).must_be_kind_of String
+    expect(details).must_include "slackbot"
+  end
 end

@@ -25,9 +25,7 @@ describe "Channel" do
     VCR.use_cassette("channel_error_tests") do
       # act
       # assert
-      error = expect do
-        Slack::Channel.get
-      end.must_raise Slack::SlackError
+      error = expect { Slack::Channel.get }.must_raise Slack::SlackError
       expect(error.message).must_equal "Something went wrong: 500"
 
     end
@@ -41,5 +39,8 @@ describe "Channel" do
       expect(error.message).must_equal "not_authed"
     end
   end
+
+
+
 end
 

@@ -24,12 +24,10 @@ module Slack
 
     def find_channel(selected_channel)
       @selected = @channels.find { |channel| channel.name == selected_channel || channel.slack_id == selected_channel }
-      return @selected
     end
 
     def find_user(selected_user)
       @selected = @users.find { |user| user.name == selected_user || user.slack_id == selected_user }
-      return @selected
     end
 
     def get_details
@@ -41,10 +39,11 @@ module Slack
     end
 
     def send_message
-      print "Enter the message you would like to send to #{@selected.name}:>"
-      end_user_message = gets.chomp
-      selected.post_message(end_user_message)
-      puts "Your message has been sent!"
+      if @selected != nil
+        return @selected.send_message
+      else
+        raise SlackError, "Must select user or channel!"
+      end
     end
   end
 end

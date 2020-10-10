@@ -28,8 +28,7 @@ def main
     when "DETAILS"
       handle_get_details(workspace)
     when 'SEND MESSAGE'
-      workspace.send_message
-      break
+      handle_send_message(workspace)
     when 'QUIT'
       loop = false
     else
@@ -81,6 +80,18 @@ def handle_get_details(workspace)
 rescue Slack::SlackError
   puts "You need to select a User or Channel."
   puts "Start again."
+end
+
+def handle_send_message(workspace)
+  begin
+  print "Enter the message you would like to send to #{workspace.selected.name}:>"
+  end_user_message = gets.chomp
+  selected.post_message(end_user_message)
+  puts "Your message has been sent!"
+  rescue
+  puts "You need to select a User or Channel."
+  puts "Start again."
+  end
 end
 
 main if __FILE__ == $PROGRAM_NAME
